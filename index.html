@@ -50,10 +50,7 @@ var emoji = document.getElementById('icon_to_use').value;
   icon: emoji
 });
 console.log(location.lat() + " " + location.lng() + " " + emoji);
-var marker = new google.maps.Marker({
-  position: marker_position,
-  map: zombie_map,
-  icon: "me.png"
+
 });
 }
 zombie_map.addListener('click', function(e) {
@@ -67,15 +64,20 @@ else {
     alert("Geolocation doesn't work in your browser");
 }
     }
-    function set_my_position(){
 function set_my_position(position){
 
 
-position.coords.latitude
-position.coords.longitude
+function position.coords.latitude(pos){
+function position.coords.longitude(pos){
 var pos = new google.maps.LatLng(position);
 }
 
+}
+var marker = new google.maps.Marker({
+  position: marker_position,
+  map: zombie_map,
+  icon: "me.png"
+  
 }
 </script>
     <script async defer
@@ -83,3 +85,10 @@ var pos = new google.maps.LatLng(position);
  </script>
   </body>
 </html>
+
+if(navigator.geolocation) {
+    navigator.geolocation.watchPosition(set_my_position);
+}
+else {
+    alert("Geolocation doesn't work in your browser");
+}
